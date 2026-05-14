@@ -1,10 +1,11 @@
 import json, os
 from nicegui import ui
 
-DB_PATH   = 'database.json'
+DB_PATH   = 'data/database.json'
 MEDIA_DIR = 'media'
 
 def load_data() -> list:
+    os.makedirs('data', exist_ok=True)
     os.makedirs(MEDIA_DIR, exist_ok=True)
     if os.path.exists(DB_PATH):
         try:
