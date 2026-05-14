@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  family-tree:
+    build: .
+    container_name: family_tree_app
+    ports:
+      - "8080:8080"
+    volumes:
+      # проброс бд и медиа папки, чтобы данные не пропали при перезапуске
+      - ./database.json:/app/database.json
+      - ./media:/app/media
+    restart: unless-stopped
